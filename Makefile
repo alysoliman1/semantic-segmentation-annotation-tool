@@ -5,4 +5,4 @@ run:
 	
 build:
 	@go build -o ./builds/annotate-arm ./annotation-tool 
-	GOOS=windows GOARCH=386 go build -o ./builds/annotate-win ./annotation-tool
+	@GOOS=windows GOARCH=386 go build -o ./builds/annotate-win.exe ./annotation-tool
