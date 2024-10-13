@@ -19,5 +19,5 @@ func (s *TextureLoader) SetCurrentImage(name string) {
 		rl.UnloadTexture(s.texture)
 	}
 	s.currentName = name
-	s.texture = rl.LoadTexture(fmt.Sprintf("images/%s.jpg", name))
+	s.texture = rl.LoadTexture(fmt.Sprintf("images/%s.png", name))
 }

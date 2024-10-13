@@ -152,7 +152,7 @@ func init() {
 	rl.SetTargetFPS(60)
 
 	// ls images is piped into program args.
-	if len(os.Args) > 1 {
+	if len(os.Args) > 1 && len(images) == 0 {
 		for _, arg := range os.Args[1:] {
 			image := strings.TrimSuffix(arg, ".jpg")
 			images = append(images, image)
