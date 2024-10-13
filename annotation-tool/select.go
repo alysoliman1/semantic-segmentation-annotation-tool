@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"slices"
 )
 
 type Box struct {
@@ -81,10 +82,19 @@ func (s *Selector) SetOverride(k, v int) {
 		raw, os.ModePerm)
 }
 
+func reverse(boxes []Box) []Box {
+	c := []Box{}
+	for _, box := range boxes {
+		c = append(c, box)
+	}
+	slices.Reverse(c)
+	return c
+}
+
 func (s *Selector) Select(x, y int, c int) int {
 	for i := 0; i < 19; i++ {
 		if boxes, ok := s.BoxLabels[i]; ok {
-			for _, box := range boxes {
+			for _, box := range reverse(boxes) {
 				if box.Contains(x, y) {
 					return i
 				}
