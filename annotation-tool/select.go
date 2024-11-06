@@ -84,9 +84,7 @@ func (s *Selector) SetOverride(k, v int) {
 
 func reverse(boxes []Box) []Box {
 	c := []Box{}
-	for _, box := range boxes {
-		c = append(c, box)
-	}
+	c = append(c, boxes...)
 	slices.Reverse(c)
 	return c
 }
