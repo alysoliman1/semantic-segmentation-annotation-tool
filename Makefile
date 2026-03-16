@@ -2,7 +2,6 @@ run:
 	@GOOS=darwin GOARCH=arm64 go build -o ./builds/annotate-arm64 ./annotation-tool
 	@ls images | xargs ./builds/annotate-arm64
 
-
 select:
 	@GOOS=darwin GOARCH=arm64 go build -o ./builds/select ./selector-processor
 	@ls images | xargs ./builds/select
