@@ -1,6 +1,11 @@
 run:
 	@GOOS=darwin GOARCH=arm64 go build -o ./builds/annotate-arm64 ./annotation-tool
 	@ls images | xargs ./builds/annotate-arm64
+
+
+select:
+	@GOOS=darwin GOARCH=arm64 go build -o ./builds/select ./selector-processor
+	@ls images | xargs ./builds/select
 	
 build:
 	CGO_ENABLED=1 CC=clang GOOS=darwin  GOARCH=arm64 go build -ldflags "-linkmode external -s -w '-extldflags=-mmacosx-version-min=13.0.0'" -o ./builds/annotate-arm64 ./annotation-tool
